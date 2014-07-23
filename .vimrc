@@ -62,8 +62,9 @@ endif
 
 inoremap <C-Del> <C-O>cw
 nnoremap <C-Del> cw
-inoremap <C-W> <C-O>b<C-O>ve
-nnoremap <C-W> i<C-O>b<C-O>ve
+inoremap <C-w> <C-O>b<C-O>ve
+nnoremap <C-w> i<C-O>b<C-O>ve
+snoremap <C-w> <Esc>bve
 
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
@@ -73,19 +74,25 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
 nnoremap <F3>     n
-inoremap <F3>     <C-g>n
+inoremap <F3>     <C-o>n
 nnoremap <S-F3>   N
-inoremap <S-F3>   <C-g>N
+inoremap <S-F3>   <C-o>N
+vnoremap <F3> ygv<Esc>/<C-r>"<CR>
+vnoremap <S-F3> ygv<Esc>?<C-r>"<CR>
+snoremap <F3> <C-o>ygv<Esc>/<C-r>"<CR>
+snoremap <S-F3> <C-o>ygv<Esc>?<C-r>"<CR>
 
 snoremap <silent> <Tab> <C-o>>gv<C-g>
 snoremap <silent> <S-Tab> <C-o><gv<C-g>
 
-snoremap <C-S-f> <C-o>ygv<Esc>:%s/<C-r>"/
+snoremap <C-r> <C-o>ygv<Esc>:%s/<C-r>"/<C-r>"
+vnoremap <C-r> ygv<Esc>:%s/<C-r>"/<C-r>"
 
 inoremap <silent> <C-e> <Esc>:Unite -start-insert grep:.<CR>
 nnoremap <silent> <C-e> :Unite -start-insert grep:.<CR>
 
-
+nnoremap gf <C-w>gf
+nnoremap gF <C-w>gF
 
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
